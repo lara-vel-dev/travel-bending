@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Nunito({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Travel Bending",
@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo-travel.ico" sizes="any" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={font.className}>{children}</body>
     </html>
   );
 }
