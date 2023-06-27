@@ -16,6 +16,8 @@ module.exports = {
     colors: {
       'main': '#BB3D40',
       'secondary': '#FF3A3F',
+      'background': '#F0F0F0',
+      'cloud': '#FFFFFF',
     }
   },
   plugins: [],

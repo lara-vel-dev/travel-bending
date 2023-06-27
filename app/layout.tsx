@@ -18,7 +18,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo-travel.ico" sizes="any" />
       </head>
-      <body className={font.className}>{children}</body>
+      <body className={`${font.className} bg-background`}>{children}</body>
     </html>
   );
 }

@@ -1,14 +1,16 @@
 import Image from "next/image";
-import homeImage from './img/fire.png';
+import Navbar from "./Components/Navbar";
+import homeImage from './img/fire-nation.jpeg';
 
 const Home = () => {
   return (
     <>
+      <Navbar/>
       <Image src={homeImage}
       alt='Fire nation'
       style={{
         width: '100%',
-        height: '450px',
+        height: '570px',
         objectFit: 'cover',
       }}/>
     </>
