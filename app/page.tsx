@@ -5,12 +5,12 @@ import homeImage from './img/fire-nation.jpeg';
 const Home = () => {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Image src={homeImage}
       alt='Fire nation'
+      className="h-96 lg:h-560"
       style={{
         width: '100%',
-        height: '570px',
         objectFit: 'cover',
       }}/>
     </>
