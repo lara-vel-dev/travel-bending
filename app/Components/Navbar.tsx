@@ -10,14 +10,38 @@ import { useState } from "react";
 
 const Navbar = (props: any) => {
   const [wasClicked, setWasClicked] = useState(false);
+
+  const navLinks = [
+    {
+      name: "My Trips",
+      link: "/my-trips",
+      icon: <BiSolidPlaneAlt />,
+    },
+    {
+      name: "My Reservations",
+      link: "/my-reservations",
+      icon: <MdLuggage />,
+    },
+    {
+      name: "My Favorites",
+      link: "/my-favorites",
+      icon: <Ai.AiFillHeart />,
+    },
+  ];
+
+
+
   return (
     <header
       className="fixed 
             flex 
+            h-20
             justify-between 
             items-center 
             px-4 
-            lg:justify-center w-full"
+            md:h-28
+            lg:justify-center w-full
+            lg:h-36"
       style={{ backgroundColor: props.navColor }}
     >
       <a href="/">
@@ -31,7 +55,7 @@ const Navbar = (props: any) => {
         />
       </a>
 
-      <nav>
+      <nav className="lg:w-full lg:grid lg:place-content-center ">
         <button
           className="lg:hidden"
           onClick={() => {
@@ -42,7 +66,9 @@ const Navbar = (props: any) => {
             className={`${
               props.navColor === "white" ? "text-carbon" : "text-cloud"
             }
-                             ${wasClicked ? "hidden" : "display"} w-7 h-7`}
+                             ${
+                               wasClicked ? "hidden" : "display"
+                             } transition-all duration-500 ease-in w-7 h-7 md:w-10 md:h-10`}
             style={{
               position: "absolute",
               top: "7px",
@@ -50,12 +76,9 @@ const Navbar = (props: any) => {
             }}
           />
           <RxCross2
-            className={`${
-              props.navColor === "white" ? "text-carbon" : "text-cloud"
-            }
-                         ${
-                           wasClicked ? "display text-carbon" : "hidden"
-                         } w-7 h-7`}
+            className={`
+            ${wasClicked ? "display text-carbon" : "hidden"} 
+            transition-all duration-500 ease-in w-7 h-7`}
             style={{
               position: "absolute",
               top: "7px",
@@ -71,34 +94,33 @@ const Navbar = (props: any) => {
                     left-0 
                     right-0 
                     top-0
+                    w-full
                     min-h-screen
-                     bg-cloud 
-                     space-y-4 
-                     transform 
-                     ${wasClicked ? "translate-x-0" : "translate-x-full"}
-                     lg:mt-4
-                     lg:relative lg:flex lg:min-h-0 lg:bg-main/0 
-                     lg:translate-x-0 lg:space-y-0 lg:space-x-6
-                     lg:border-solid lg:border-2fixed 
-                     left-0 
-                     right-0 
-                     min-h-screen
-                      bg-main 
-                      space-y-4 
-                      transform 
-                      translate-x-full
-                      lg:mt-4
-                      lg:relative lg:flex lg:min-h-0 lg:bg-main/0 
-                      lg:translate-x-0 lg:space-y-0 lg:space-x-6
-                      lg:border-solid lg:border-2`}
+                    bg-cloud 
+                    space-y-4 
+                    transform 
+                    pl-10
+                    pt-10
+                    ${wasClicked ? "translate-x-0" : "translate-x-full"}
+                    lg:relative lg:flex lg:min-h-0 lg:bg-main/0 
+                    lg:translate-x-0 lg:space-y-0 lg:space-x-72
+                    lg:mt-4
+                    lg:pl-96 lg:pt-0
+                    lg:justify-around
+                    transition-all duration-500 ease-in
+                    `}
         >
-          <ul
-            className={`${
-              props.navColor === "white" ? "text-carbon" : "text-cloud"
-            } 
-                        lg:flex lg:text-xl font-bold
-                        border-solid border-2
-                        `}
+          <div>
+            <ul
+            className={`
+            ${
+              wasClicked || props.navColor === "white"
+                ? "text-carbon"
+                : "text-cloud"
+            }
+            
+            text-lg lg:flex lg:text-xl font-bold
+            `}
           >
             <li className="flex my-2 lg:hidden">
               <Ai.AiFillHome />
@@ -106,37 +128,32 @@ const Navbar = (props: any) => {
                 Home
               </a>
             </li>
-            <li className="flex my-2">
-              <BiSolidPlaneAlt />
-              <a className="mx-3" href="/my-trips">
-                My Trips
-              </a>
-            </li>
-            <li className="flex my-2">
-              <MdLuggage />
-              <a className="mx-3" href="/my-reservations">
-                My Reservations
-              </a>
-            </li>
-            <li className="flex my-2">
-              <Ai.AiFillHeart />
-              <a className="mx-3" href="/my-favorites">
-                My Favorites
-              </a>
-            </li>
+
+            {navLinks.map(({ name, link, icon }) => (
+              <li key={name} className="flex my-2 hover:text-secondary ">
+                {icon}
+                <a className={`mx-3 `} href={link}>
+                  {name}
+                </a>
+              </li>
+            ))}
           </ul>
-          <div className="inline-grid grid-cols-1 gap-4 ">
+          </div>
+          <div className="inline-grid grid-cols-1 gap-4 lg:flex  ">
             <button
-              className="
-                            text-cloud 
+              className={`text-cloud 
                             border-solid border-2 
                             rounded-full 
                             border-main
                             bg-main
+                            hover:bg-secondary
                             px-7
                             py-1
-                            lg:bg-main/0
-                            "
+                            ${
+                              props.navColor === "white"
+                                ? "lg:bg-main"
+                                : "lg:bg-main/0"
+                            } `}
             >
               Login
             </button>
@@ -147,6 +164,7 @@ const Navbar = (props: any) => {
                             rounded-full 
                             border-main
                             bg-main
+                            hover:bg-secondary
                             px-7
                             py-1"
             >
