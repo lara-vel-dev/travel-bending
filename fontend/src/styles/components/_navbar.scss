@@ -1,0 +1,57 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+
+  &_img {
+    width: 150px;
+    margin-left: 10px;
+    padding-bottom: 20px;
+  }
+
+  &_links {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+
+    &__link {
+      font-size: map-get($text_sizes, "lg-txt");
+      font-weight: bold;
+      & > a {
+        text-decoration: none;
+        color: map-get($colors, "txt-light");
+        padding-bottom: 5px;
+        transition: color 0.3s ease, border-bottom 0.1s ease;
+
+        &:hover {
+          color: map-get($colors, "btn-secondary");
+          border-bottom: 2px solid map-get($colors, "btn-secondary");
+        }
+      }
+
+      .active {
+        color: map-get($colors, "btn-secondary");
+        border-bottom: 2px solid map-get($colors, "btn-secondary");
+      }
+
+      &_icon:last-of-type {
+        font-size: map-get($text_sizes, "title");
+      }
+
+      & .heart {
+        font-size: map-get($text_sizes, "normal-txt");
+      }
+    }
+  }
+}
+
+.navbar-auth {
+  background-color: map-get($colors, "txt-light");
+  & ul li > a {
+    color: map-get($colors, "txt-dark");
+  }
+}

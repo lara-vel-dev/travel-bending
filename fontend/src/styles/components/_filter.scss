@@ -1,0 +1,45 @@
+.filter-container {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  top: 180px;
+  @include flex(row);
+
+  .filter {
+    width: 80%;
+    height: 220px;
+    background-color: map-get($colors, "txt-light");
+    border-radius: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    @include flex(row);
+    justify-content: space-around;
+
+    &_form-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: map-get($text_sizes, "normal-txt");
+
+      label {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      input {
+        background-color: #f0f0f0;
+        padding: 15px;
+        padding-left: 35px;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &__icon {
+        position: absolute;
+        top: 55px;
+        font-size: map-get($text_sizes, "title");
+        margin-left: 5px;
+      }
+    }
+  }
+}

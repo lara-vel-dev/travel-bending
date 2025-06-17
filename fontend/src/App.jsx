@@ -1,8 +1,10 @@
+import Landing from "./pages/Landing";
+
 function App() {
 
   return (
     <>
-      <h1>hola mundo</h1>
+      <Landing/>
     </>
   );
 }

@@ -15,3 +15,11 @@ body {
   height: 100vh;
   background-color: map-get($colors, "bg-primary");
 }
+
+.btn {
+  background-color: map-get($colors, "btn-primary");
+  color: map-get($colors, "txt-light");
+  padding: 10px 30px;
+  margin-top: 10px;
+  border-radius: 15px;
+}

@@ -4,6 +4,11 @@
 @import "./base/mixins";
 
 // Components
+@import "./components/navbar";
+@import "./components/slider";
+@import "./components/dropdown";
+@import "./components/filter";
+@import "./components/card";
 
 // Pages
 @import "./pages/landing";
@@ -16,4 +21,3 @@
 @import "./pages/trips";
 @import "./pages/reservation";
 @import "./pages/favorites";
- 
